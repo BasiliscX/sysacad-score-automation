@@ -15,7 +15,7 @@ SSA es una API desarrollada en Node.js utilizando Express y Puppeteer. Dado un n
 1. Clona este repositorio:
 
     ```bash
-    git clone https://github.com/tu_usuario/ssa.git
+    git clone https://github.com/BasiliscX/sysacad-score-automation.git
     cd ssa
     ```
 
@@ -48,7 +48,7 @@ SSA es una API desarrollada en Node.js utilizando Express y Puppeteer. Dado un n
 
     ```json
     {
-        "facultad": "nombre_de_la_facultad",
+        "facultad": "numero_de_facultad",
         "legajo": "numero_de_legajo",
         "password": "contrasena"
     }
@@ -58,7 +58,7 @@ SSA es una API desarrollada en Node.js utilizando Express y Puppeteer. Dado un n
 
     ```bash
     curl -X POST http://localhost:3000/api/califications -H "Content-Type: application/json" -d '{
-        "facultad": "Facultad de Ejemplo",
+        "facultad": "666",
         "legajo": "123456",
         "password": "tu_contraseña"
     }'
@@ -122,11 +122,3 @@ ssa/
 ## Autor
 
 Guillermo Navarro
-
-## Licencia
-
-Este proyecto está licenciado bajo los términos de la licencia ISC.
-
----
-
-¡Espero que este README cumpla con tus expectativas! Si necesitas alguna modificación o información adicional, no dudes en decírmelo.
