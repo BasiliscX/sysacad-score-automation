@@ -7,6 +7,6 @@ route.get('/api', (req, res) => {
   res.send('home');
 });
 
-route.use('/api/califications', scoresRoutes);
+route.use('/api/scores', scoresRoutes);
 
 export default route;
