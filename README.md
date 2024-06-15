@@ -1,4 +1,4 @@
-# SSA (Sysasacad Score Automation)
+# SSA (Sysacad Score Automation)
 
 ## Descripción
 
