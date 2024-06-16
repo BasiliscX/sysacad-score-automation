@@ -1,4 +1,7 @@
-import puppeteer from 'puppeteer';
+import puppeteer, { executablePath } from 'puppeteer';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 export async function fetchScores(data) {
 
@@ -9,7 +12,15 @@ export async function fetchScores(data) {
     async function startBrowser() {
         try {
             const launchOptions = {
-                args: ['--no-sandbox']
+                args: [
+                    '--disable-setuid-sandbox--',
+                    '--no-sandbox',
+                    '--single-process',
+                    '--no-zygote',
+                ],
+                executablePath: process.env.NODE_ENV === 'production' ?
+                                process.env.PUPPETEER_EXECUTABLE_PATH :
+                                puppeteer.executablePath(),
             };
             browser = await puppeteer.launch(launchOptions);
             console.log('Browser launched successfully');
