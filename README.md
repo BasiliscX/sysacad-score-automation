@@ -1,124 +1,42 @@
 # SSA (Sysacad Score Automation)
 
-## Descripción
+SSA es una API desarrollada en Node.js que automatiza la obtención de calificaciones desde el sistema académico Sysacad de la Universidad Tecnológica Nacional. Utiliza web scraping con Puppeteer para navegar por el sitio web, iniciar sesión y extraer la información de las calificaciones del estudiante, y las devuelve en formato JSON.
 
-SSA es una API desarrollada en Node.js utilizando Express y Puppeteer. Dado un número de universidad, legajo y contraseña, esta API ingresa al sitio web académico de la facultad con Puppeteer, realiza los clics necesarios en los botones e ingresa hasta la tabla con las calificaciones, copia en memoria los campos de la tabla y devuelve un JSON con las calificaciones del usuario.
+## Características
 
-## Requisitos
-
-- Node.js
-- NPM
-- Google Chrome
-
-## Instalación
-
-1. Clona este repositorio:
-
-    ```bash
-    git clone https://github.com/BasiliscX/sysacad-score-automation.git
-    cd ssa
-    ```
-
-2. Instala las dependencias:
-
-    ```bash
-    npm install
-    ```
+- **Automatización de Tareas**: Accede al sistema Sysacad con las credenciales proporcionadas y extrae las calificaciones sin intervención manual.
+- **Seguridad y Transparencia**: No se almacena ni se roba información personal. Puedes revisar el [código fuente en GitHub](https://github.com/BasiliscX/sysacad-score-automation.git) para verificar su funcionamiento.
+- **Interfaz Web**: Incluye una sencilla interfaz web para interactuar con la API a través del formulario HTML de la pantalla principal o con herramientas como Insomnia y Postman.
 
 ## Uso
 
-1. Asegúrate de tener Google Chrome instalado en tu máquina y de que el path en `puppeteer.launch` en `src/features/scores/scores.service.js` apunte a la ubicación correcta de `chrome.exe`.
+### Interfaz Web
 
-2. Inicia el servidor:
+1. Accede a la [página principal del servidor](https://sysacad-score-automation.onrender.com/).
+2. Completa el formulario con el número de facultad, legajo y contraseña para obtener las calificaciones.
+3. También puedes enviar una solicitud POST a `https://sysacad-score-automation.onrender.com/api/scores` con Insomnia, Postman u otras herramientas similares.
 
-    ```bash
-    npm start
-    ```
+### Uso Local
 
-3. La API estará disponible en `http://localhost:3000`.
+1. **Instalación**: Clona este repositorio o descárgalo directamente. Asegúrate de tener Node.js instalado.
+2. **Configuración**: Configura las variables de entorno o ajusta las opciones según sea necesario en el archivo `server.js`.
+3. **Ejecución**: Inicia el servidor ejecutando `npm start` en tu terminal.
 
-## Endpoints
+## Contribución
 
-### Obtener Calificaciones
+Si deseas contribuir a SSA, sigue estos pasos:
 
-- **URL:** `/api/califications`
-- **Método:** `POST`
-- **Descripción:** Obtiene las calificaciones de un estudiante.
-- **Body:** JSON con los siguientes campos:
+1. Haz un fork del repositorio y clónalo en tu máquina local.
+2. Crea una rama (`git checkout -b feature/nueva-funcionalidad`).
+3. Realiza tus cambios y pruebas.
+4. Confirma los cambios (`git commit -am 'Añade nueva funcionalidad'`).
+5. Sube los cambios a la rama (`git push origin feature/nueva-funcionalidad`).
+6. Abre una solicitud de extracción en GitHub.
 
-    ```json
-    {
-        "facultad": "numero_de_facultad",
-        "legajo": "numero_de_legajo",
-        "password": "contrasena"
-    }
-    ```
+## Agradecimientos
 
-- **Ejemplo de petición:**
+Este proyecto utiliza tecnologías de código abierto y agradece a la comunidad de desarrolladores por su apoyo y contribuciones.
 
-    ```bash
-    curl -X POST http://localhost:3000/api/califications -H "Content-Type: application/json" -d '{
-        "facultad": "666",
-        "legajo": "123456",
-        "password": "tu_contraseña"
-    }'
-    ```
+## Contacto
 
-- **Ejemplo de respuesta:**
-
-    ```json
-    [
-        {
-            "fecha": "2023-05-10",
-            "materia": "Matemáticas",
-            "nota": "9",
-            "especialidad": "Ingeniería",
-            "plan": "2020",
-            "codigo": "MAT123"
-        },
-        ...
-    ]
-    ```
-
-### Home
-
-- **URL:** `/api`
-- **Método:** `GET`
-- **Descripción:** Punto de inicio de la API.
-- **Ejemplo de respuesta:**
-
-    ```json
-    "home"
-    ```
-
-### Califications Feature
-
-- **URL:** `/api/califications`
-- **Método:** `GET`
-- **Descripción:** Punto de entrada de la funcionalidad de calificaciones.
-- **Ejemplo de respuesta:**
-
-    ```json
-    "califications feature!"
-    ```
-
-## Estructura del Proyecto
-
-```
-ssa/
-│
-├── package.json
-├── package-lock.json
-├── server.js
-└── src/
-    ├── routes.js
-    └── features/
-        └── scores/
-            ├── scores.controller.js
-            ├── scores.routes.js
-            └── scores.service.js
-```
-
-## Autor
-
-Guillermo Navarro
+Para cualquier pregunta o sugerencia, no dudes en contactar conmigo a través de mi [perfil de GitHub](https://github.com/BasiliscX).

@@ -13,6 +13,20 @@
         <br><br>
         SSA es una API desarrollada en Node.js utilizando Express y Puppeteer. Dado un número de universidad, legajo y contraseña, esta API ingresa al sitio web académico de la facultad con Puppeteer, realiza los clics necesarios en los botones e ingresa hasta la tabla con las calificaciones, copia en memoria los campos de la tabla y devuelve un JSON con las calificaciones del usuario.
     </p>
+    <p>
+        Si los datos ingresados son correctos, recibirás un JSON con la información de tus calificaciones.
+    </p>
+    <p>
+        También puedes utilizar herramientas como Insomnia o Postman para enviar una solicitud POST a la dirección 
+        <code>https://sysacad-score-automation.onrender.com/api/scores</code>. En ambos casos, recibirás el mismo JSON con tus calificaciones.
+    </p>
+    <p>
+        <strong>Aclaración:</strong> No se guarda ni se roba información utilizando esta API. Puedes verificar el código y constatarlo visitando el repositorio en 
+        <a href="https://github.com/BasiliscX/sysacad-score-automation.git" target="_blank">GitHub</a>.
+    </p>
+    <p>
+        <strong>PD:</strong> Si te pareció interesante esto, ¡regálame una estrella en el repositorio y sígueme!
+    </p>
     <form id="formulario" action="/api/scores" method="POST">
         <label for="facultad">Número de Facultad:</label>
         <input type="number" id="facultad" name="facultad" required>
