@@ -1,6 +1,7 @@
 import express from 'express';
 import Routes from './src/routes.js';
-import bodyParser from 'body-parser'
+import bodyParser from 'body-parser';
+import { fetchScores } from './src/features/scores/scores.service.js'; // Importa fetchScores si no está definido en otro archivo
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -9,6 +10,16 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+// Configurar tiempo de espera para las solicitudes HTTP
+app.use((req, res, next) => {
+    res.setTimeout(120000, () => {
+        res.status(408).send('Request timeout');
+    });
+    next();
+});
+
+// Middleware para las rutas
 app.use('/', Routes);
 
 // Servir archivos estáticos desde la carpeta public
