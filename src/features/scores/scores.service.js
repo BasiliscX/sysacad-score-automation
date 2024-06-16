@@ -3,7 +3,7 @@ import puppeteer from 'puppeteer';
 export async function fetchScores(data){
     const browser = await puppeteer.launch({
         headless: true,
-        executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe', // Asegúrate de que este path es correcto para tu entorno de despliegue.
+        // executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe', // Asegúrate de que este path es correcto para tu entorno de despliegue.
         args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
     
