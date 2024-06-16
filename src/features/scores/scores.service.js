@@ -9,9 +9,7 @@ export async function fetchScores(data) {
     async function startBrowser() {
         try {
             const launchOptions = {
-                headless: true,
-                executablePath: '/usr/bin/google-chrome-stable',
-                args: ['--no-sandbox', '--disable-setuid-sandbox']
+                args: ['--no-sandbox']
             };
             browser = await puppeteer.launch(launchOptions);
             console.log('Browser launched successfully');
