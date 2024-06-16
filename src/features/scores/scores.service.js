@@ -11,18 +11,18 @@ export async function fetchScores(data) {
     // Función para iniciar el navegador
     async function startBrowser() {
         try {
-            const launchOptions = {
+            browser = await puppeteer.launch({
                 args: [
-                    '--disable-setuid-sandbox--',
-                    '--no-sandbox',
-                    '--single-process',
-                    '--no-zygote',
+                  "--disable-setuid-sandbox",
+                  "--no-sandbox",
+                  "--single-process",
+                  "--no-zygote",
                 ],
-                executablePath: process.env.NODE_ENV === 'production' ?
-                                process.env.PUPPETEER_EXECUTABLE_PATH :
-                                puppeteer.executablePath(),
-            };
-            browser = await puppeteer.launch(launchOptions);
+                executablePath:
+                  process.env.NODE_ENV === "production"
+                    ? process.env.PUPPETEER_EXECUTABLE_PATH
+                    : puppeteer.executablePath(),
+              });
             console.log('Browser launched successfully');
         } catch (error) {
             console.error('Error launching browser:', error);
