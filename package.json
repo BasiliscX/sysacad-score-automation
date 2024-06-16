@@ -12,7 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "puppeteer": "^20.9.0"
+    "puppeteer": "^22.11.0"
   }
 }
