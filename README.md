@@ -1,42 +1,45 @@
 # SSA (Sysacad Score Automation)
 
-SSA es una API desarrollada en Node.js que automatiza la obtención de calificaciones desde el sistema académico Sysacad de la Universidad Tecnológica Nacional. Utiliza web scraping con Puppeteer para navegar por el sitio web, iniciar sesión y extraer la información de las calificaciones del estudiante, y las devuelve en formato JSON.
+SSA is a Node.js API that automates fetching academic scores from the Sysacad system at the Universidad Tecnológica Nacional. It utilizes web scraping with Puppeteer to navigate the website, log in, extract student score information, and returns it in JSON format.
 
-## Características
+## Features
 
-- **Automatización de Tareas**: Accede al sistema Sysacad con las credenciales proporcionadas y extrae las calificaciones sin intervención manual.
-- **Seguridad y Transparencia**: No se almacena ni se roba información personal. Puedes revisar el [código fuente en GitHub](https://github.com/BasiliscX/sysacad-score-automation.git) para verificar su funcionamiento.
-- **Interfaz Web**: Incluye una sencilla interfaz web para interactuar con la API a través del formulario HTML de la pantalla principal o con herramientas como Insomnia y Postman.
+- **Task Automation**: Accesses the Sysacad system with provided credentials and extracts scores without manual intervention.
+- **Security and Transparency**: No personal information is stored or stolen. You can review the [source code on GitHub](https://github.com/BasiliscX/sysacad-score-automation.git) to verify its operation.
+- **Web Interface**: Includes a simple web interface to interact with the API via an HTML form on the main screen or through tools like Insomnia and Postman.
 
-## Uso
+## Usage
 
-### Interfaz Web
+### Web Interface
 
-1. Accede a la [página principal del servidor](https://sysacad-score-automation.onrender.com/).
-2. Completa el formulario con el número de facultad, legajo y contraseña para obtener las calificaciones.
-3. También puedes enviar una solicitud POST a `https://sysacad-score-automation.onrender.com/api/scores` con Insomnia, Postman u otras herramientas similares.
+1. Access the [server's main page](https://sysacad-score-automation-production.up.railway.app).
+2. Fill out the form with faculty number, registration number, and password to fetch scores.
+![web-form](https://i.postimg.cc/sXHJX6Zw/web-form.png)
+![web-form-response](https://i.postimg.cc/bJYh8JQ1/web-form-response.png)
+3. Alternatively, you can send a POST request to `https://sysacad-score-automation-production.up.railway.app/api/scores` using Insomnia, Postman, or similar tools.
+![insomnia POST](https://i.postimg.cc/SNsGBp33/insomnia-POST-500.png)
 
-### Uso Local
+### Local Usage
 
-1. **Instalación**: Clona este repositorio o descárgalo directamente. Asegúrate de tener Node.js instalado.
-2. **Configuración**: Configura las variables de entorno o ajusta las opciones según sea necesario en el archivo `server.js`.
-3. **Ejecución**: Inicia el servidor ejecutando `npm start` en tu terminal.
+1. **Installation**: Clone this repository or download it directly. Ensure Node.js is installed.
+2. **Configuration**: Set environment variables or adjust options as needed in the `server.js` file.
+3. **Execution**: Start the server by running `npm start` in your terminal.
 
-## Contribución
+## Contribution
 
-Si deseas contribuir a SSA, sigue estos pasos:
+If you want to contribute to SSA, follow these steps:
 
-1. Haz un fork del repositorio y clónalo en tu máquina local.
-2. Crea una rama (`git checkout -b feature/nueva-funcionalidad`).
-3. Realiza tus cambios y pruebas.
-4. Confirma los cambios (`git commit -am 'Añade nueva funcionalidad'`).
-5. Sube los cambios a la rama (`git push origin feature/nueva-funcionalidad`).
-6. Abre una solicitud de extracción en GitHub.
+1. Fork the repository and clone it to your local machine.
+2. Create a branch (`git checkout -b feature/new-feature`).
+3. Make your changes and test them.
+4. Commit your changes (`git commit -am 'Add new feature'`).
+5. Push to the branch (`git push origin feature/new-feature`).
+6. Open a pull request on GitHub.
 
-## Agradecimientos
+## Acknowledgements
 
-Este proyecto utiliza tecnologías de código abierto y agradece a la comunidad de desarrolladores por su apoyo y contribuciones.
+This project uses open-source technologies and thanks the developer community for their support and contributions.
 
-## Contacto
+## Contact
 
-Para cualquier pregunta o sugerencia, no dudes en contactar conmigo a través de mi [perfil de GitHub](https://github.com/BasiliscX).
+For any questions or suggestions, feel free to contact me through my [GitHub profile](https://github.com/BasiliscX).
