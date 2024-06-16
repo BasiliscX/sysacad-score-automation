@@ -3,9 +3,22 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+/**
+ * Fetches exam scores for a student using Puppeteer to interact with the university's web system.
+ * @param {Object} data - An object containing login information.
+ * @param {string} data.facultad - The UTN to select.
+ * @param {string} data.legajo - The student's ID number.
+ * @param {string} data.password - The student's password.
+ * @returns {Promise<Array>} - A promise that resolves to an array of exam scores.
+ */
 export async function fetchScores(data) {
     let browser;
 
+    /**
+     * Starts the Puppeteer browser with specific launch options.
+     * @returns {Promise<void>} - A promise that resolves when the browser is launched.
+     * @throws {Error} - Throws an error if the browser fails to launch.
+     */
     async function startBrowser() {
         try {
             browser = await puppeteer.launch({
@@ -25,6 +38,11 @@ export async function fetchScores(data) {
         }
     }
 
+    /**
+     * Navigates to the specified URL and retrieves exam scores.
+     * @returns {Promise<Array>} - A promise that resolves to an array of exam scores.
+     * @throws {Error} - Throws an error if data fetching fails.
+     */
     async function fetchData() {
         const page = await browser.newPage();
         try {
