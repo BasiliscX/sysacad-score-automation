@@ -1,124 +1,45 @@
 # SSA (Sysacad Score Automation)
 
-## Descripción
+SSA is a Node.js API that automates fetching academic scores from the Sysacad system at the Universidad Tecnológica Nacional. It utilizes web scraping with Puppeteer to navigate the website, log in, extract student score information, and returns it in JSON format.
 
-SSA es una API desarrollada en Node.js utilizando Express y Puppeteer. Dado un número de universidad, legajo y contraseña, esta API ingresa al sitio web académico de la facultad con Puppeteer, realiza los clics necesarios en los botones e ingresa hasta la tabla con las calificaciones, copia en memoria los campos de la tabla y devuelve un JSON con las calificaciones del usuario.
+## Features
 
-## Requisitos
+- **Task Automation**: Accesses the Sysacad system with provided credentials and extracts scores without manual intervention.
+- **Security and Transparency**: No personal information is stored or stolen. You can review the [source code on GitHub](https://github.com/BasiliscX/sysacad-score-automation.git) to verify its operation.
+- **Web Interface**: Includes a simple web interface to interact with the API via an HTML form on the main screen or through tools like Insomnia and Postman.
 
-- Node.js
-- NPM
-- Google Chrome
+## Usage
 
-## Instalación
+### Web Interface
 
-1. Clona este repositorio:
+1. Access the [server's main page](https://sysacad-score-automation-production.up.railway.app).
+2. Fill out the form with faculty number, registration number, and password to fetch scores.
+![web-form](https://i.postimg.cc/sXHJX6Zw/web-form.png)
+![web-form-response](https://i.postimg.cc/bJYh8JQ1/web-form-response.png)
+3. Alternatively, you can send a POST request to `https://sysacad-score-automation-production.up.railway.app/api/scores` using Insomnia, Postman, or similar tools.
+![insomnia POST](https://i.postimg.cc/SNsGBp33/insomnia-POST-500.png)
 
-    ```bash
-    git clone https://github.com/BasiliscX/sysacad-score-automation.git
-    cd ssa
-    ```
+### Local Usage
 
-2. Instala las dependencias:
+1. **Installation**: Clone this repository or download it directly. Ensure Node.js is installed.
+2. **Configuration**: Set environment variables or adjust options as needed in the `server.js` file.
+3. **Execution**: Start the server by running `npm start` in your terminal.
 
-    ```bash
-    npm install
-    ```
+## Contribution
 
-## Uso
+If you want to contribute to SSA, follow these steps:
 
-1. Asegúrate de tener Google Chrome instalado en tu máquina y de que el path en `puppeteer.launch` en `src/features/scores/scores.service.js` apunte a la ubicación correcta de `chrome.exe`.
+1. Fork the repository and clone it to your local machine.
+2. Create a branch (`git checkout -b feature/new-feature`).
+3. Make your changes and test them.
+4. Commit your changes (`git commit -am 'Add new feature'`).
+5. Push to the branch (`git push origin feature/new-feature`).
+6. Open a pull request on GitHub.
 
-2. Inicia el servidor:
+## Acknowledgements
 
-    ```bash
-    npm start
-    ```
+This project uses open-source technologies and thanks the developer community for their support and contributions.
 
-3. La API estará disponible en `http://localhost:3000`.
+## Contact
 
-## Endpoints
-
-### Obtener Calificaciones
-
-- **URL:** `/api/califications`
-- **Método:** `POST`
-- **Descripción:** Obtiene las calificaciones de un estudiante.
-- **Body:** JSON con los siguientes campos:
-
-    ```json
-    {
-        "facultad": "numero_de_facultad",
-        "legajo": "numero_de_legajo",
-        "password": "contrasena"
-    }
-    ```
-
-- **Ejemplo de petición:**
-
-    ```bash
-    curl -X POST http://localhost:3000/api/califications -H "Content-Type: application/json" -d '{
-        "facultad": "666",
-        "legajo": "123456",
-        "password": "tu_contraseña"
-    }'
-    ```
-
-- **Ejemplo de respuesta:**
-
-    ```json
-    [
-        {
-            "fecha": "2023-05-10",
-            "materia": "Matemáticas",
-            "nota": "9",
-            "especialidad": "Ingeniería",
-            "plan": "2020",
-            "codigo": "MAT123"
-        },
-        ...
-    ]
-    ```
-
-### Home
-
-- **URL:** `/api`
-- **Método:** `GET`
-- **Descripción:** Punto de inicio de la API.
-- **Ejemplo de respuesta:**
-
-    ```json
-    "home"
-    ```
-
-### Califications Feature
-
-- **URL:** `/api/califications`
-- **Método:** `GET`
-- **Descripción:** Punto de entrada de la funcionalidad de calificaciones.
-- **Ejemplo de respuesta:**
-
-    ```json
-    "califications feature!"
-    ```
-
-## Estructura del Proyecto
-
-```
-ssa/
-│
-├── package.json
-├── package-lock.json
-├── server.js
-└── src/
-    ├── routes.js
-    └── features/
-        └── scores/
-            ├── scores.controller.js
-            ├── scores.routes.js
-            └── scores.service.js
-```
-
-## Autor
-
-Guillermo Navarro
+For any questions or suggestions, feel free to contact me through my [GitHub profile](https://github.com/BasiliscX).
