@@ -14,7 +14,7 @@ SSA is a Node.js API that automates fetching academic scores from the Sysacad sy
 
 1. Access the [server's main page](https://sysacad-score-automation-production.up.railway.app).
 2. Fill out the form with faculty number, registration number, and password to fetch scores.
-![web-form](https://i.postimg.cc/sXHJX6Zw/web-form.png)
+![web-form](https://i.postimg.cc/BZNBFqZc/front-PR-junacadev.png)
 ![web-form-response](https://i.postimg.cc/bJYh8JQ1/web-form-response.png)
 3. Alternatively, you can send a POST request to `https://sysacad-score-automation-production.up.railway.app/api/scores` using Insomnia, Postman, or similar tools.
 ![insomnia POST](https://i.postimg.cc/SNsGBp33/insomnia-POST-500.png)
